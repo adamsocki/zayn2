@@ -139,7 +139,9 @@ std::vector<const char *> getRequiredExtensions()
     if (enableValidationLayers)
     {
         extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-        // extensions.push_back(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+        #ifdef __APPLE__
+        extensions.push_back(VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME);
+        #endif
     }
 #ifdef __APPLE__
     uint32_t instanceExtensionCount;

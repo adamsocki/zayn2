@@ -1,0 +1,10 @@
+# ninja log v6
+4	499	1726256986333743109	CMakeFiles/main_pc.dir/external/imgui/backends/imgui_impl_vulkan.cpp.o	14ccca3fbaa65a52
+3	1097	1726256986332517392	CMakeFiles/main_pc.dir/external/imgui/imgui_demo.cpp.o	f80107a762c29819
+4	1237	1726256986333427079	CMakeFiles/main_pc.dir/external/imgui/imgui_tables.cpp.o	c34d098ccced829a
+4	1453	1726256986334102311	CMakeFiles/main_pc.dir/external/imgui/backends/imgui_impl_glfw.cpp.o	781d8350c95ed1ad
+3	1493	1726256986332819473	CMakeFiles/main_pc.dir/external/imgui/imgui_draw.cpp.o	ee8f05250cc58be5
+32	8316	1726258351037482954	CMakeFiles/main_pc.dir/src/main.cpp.o	8137d09685d1b738
+3	1847	1726256986333123390	CMakeFiles/main_pc.dir/external/imgui/imgui_widgets.cpp.o	2bca67f3c22b8995
+2	2176	1726256986332186291	CMakeFiles/main_pc.dir/external/imgui/imgui.cpp.o	d9a326a4984c7dd9
+8316	8469	1726258359321607984	main_pc	77d9bef2fa571a40

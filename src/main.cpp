@@ -10,7 +10,7 @@
 #define ENGINE_3D 1
 #endif
 
-#include <windows.h>
+// #include <windows.h>
 
 
 #include "../external/imgui/imgui.h"
@@ -160,9 +160,12 @@ int main(void)
 
 
     struct timespec spec;
+    double startTime = {};
     
     #ifdef __APPLE__
         clock_gettime(CLOCK_MONOTONIC, &spec);
+    startTime = (spec.tv_sec * 1000.0) + (spec.tv_nsec / 1.0e6);
+        
     #else
         // Windows appropriate solution
         // Use QueryPerformanceCounter for high-resolution timer
