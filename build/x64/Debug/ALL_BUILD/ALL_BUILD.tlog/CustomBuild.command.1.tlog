@@ -1,6 +1,6 @@
-^C:\DEV_C\ZAYN_\CMAKELISTS.TXT
+^C:\DEV_C\ZAYN\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev_c/zayn_ -BC:/dev_c/zayn_/build --check-stamp-file C:/dev_c/zayn_/build/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev_c/zayn -BC:/dev_c/zayn/build --check-stamp-file C:/dev_c/zayn/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

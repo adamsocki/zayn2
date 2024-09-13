@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\dev_c\zayn_\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\dev_c\zayn\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\dev_c\zayn_\build\Debug\main_pc.exe</FullPath>
+      <FullPath>C:\dev_c\zayn\build\Debug\main_pc.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\dev_c\zayn_\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>C:\dev_c\zayn\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

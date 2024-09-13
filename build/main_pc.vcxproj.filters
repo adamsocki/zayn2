@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\dev_c\zayn_\src\main.cpp">
+    <ClCompile Include="C:\dev_c\zayn\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\imgui.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\imgui_demo.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\imgui_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\imgui_draw.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\imgui_widgets.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\imgui_tables.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\imgui_tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\backends\imgui_impl_vulkan.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\backends\imgui_impl_vulkan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\dev_c\zayn_\external\imgui\backends\imgui_impl_glfw.cpp">
+    <ClCompile Include="C:\dev_c\zayn\external\imgui\backends\imgui_impl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\dev_c\zayn_\CMakeLists.txt" />
+    <CustomBuild Include="C:\dev_c\zayn\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{B771736E-EE6C-3574-8430-B48B78688D8A}</UniqueIdentifier>
+      <UniqueIdentifier>{839740AC-E0C9-31CE-A2A9-5C640605AA0E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

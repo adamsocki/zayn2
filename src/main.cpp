@@ -10,8 +10,9 @@
 #define ENGINE_3D 1
 #endif
 
-// #include <windows.h>
-
+#ifdef WIN32
+#include <windows.h>
+#endif
 
 #include "../external/imgui/imgui.h"
 #include "../external/imgui/backends/imgui_impl_glfw.h"
@@ -179,7 +180,7 @@ int main(void)
         {
             // Handle error
         }
-        uint64_t startTime = counter.QuadPart * 1000 / frequency.QuadPart;
+        startTime = counter.QuadPart * 1000 / frequency.QuadPart;
     #endif
     double gameTime = 0.0;
     double systemTime = startTime;
