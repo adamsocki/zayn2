@@ -1,0 +1,6 @@
+
+
+
+$models
+
+-FILE "models/level0/level0.obj"
