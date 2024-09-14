@@ -1950,7 +1950,7 @@ void InitRender_Learn()
     
     CreateGraphicsPipeline(Zayn, &Zayn->vkGraphicsPipeline,  getShaderPath("vkShader_3d_INIT_vert.spv"),  getShaderPath( "vkShader_3d_INIT_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout, &Zayn->vkPipelineLayout);
     // CreateGraphicsPipeline(Zayn, &Zayn->monkey_RC.pipeline,  getShaderPath( "vkShader_3d_INIT_vert.spv"),  getShaderPath( "vkShader_3d_INIT_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout, &Zayn->vkPipelineLayout);
-    CreateGraphicsPipeline_Instances(Zayn, &Zayn->monkey_RC.pipeline,  getShaderPath( "vkShader_3d_INT_vert_inst.spv"),  getShaderPath( "vkShader_3d_INIT_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout, &Zayn->vkPipelineLayout);
+    CreateGraphicsPipeline_Instances(Zayn, &Zayn->monkey_RC.pipeline,  getShaderPath( "vkShader_3d_INIT_vert_inst.spv"),  getShaderPath( "vkShader_3d_INIT_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout, &Zayn->vkPipelineLayout);
     CreateGraphicsPipeline(Zayn, &Zayn->sphereRC.pipeline,  getShaderPath( "vkShader_3d_INIT_vert.spv"),  getShaderPath( "vkShader_3d_INIT_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout, &Zayn->vkPipelineLayout);
     CreateGraphicsPipeline(Zayn, &Zayn->sphereRC_blank.pipeline,  getShaderPath( "vert_blank.spv"),  getShaderPath( "frag_blank.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout_blank, &Zayn->vkPipelineLayout_blank);
     CreateGraphicsPipeline(Zayn, &Zayn->grid.pipeline,  getShaderPath( "grid_vert.spv"),  getShaderPath( "grid_frag.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout_blank, &Zayn->vkPipelineLayout_blank);
@@ -2062,7 +2062,6 @@ void UpdateUniformBuffer(uint32_t currentImage, ZaynMemory *zaynMem)
     ubo.proj = glm::perspective(glm::radians(60.0f), zaynMem->vkSwapChainExtent.width / (float)zaynMem->vkSwapChainExtent.height, 0.1f, 1000.0f);
     ubo.proj[1][1] *= -1;
     
-    ubo.viewProj = zaynMem->camera.viewProjection;
 
     memcpy(zaynMem->vkUniformBuffersMapped[currentImage], &ubo, sizeof(ubo));
 }

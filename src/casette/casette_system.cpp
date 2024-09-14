@@ -1,7 +1,7 @@
 
 
-#define INTRO 0
-#define LIGHTING 1
+#define INTRO 1
+#define LIGHTING 0
 
 
 #include "../managers/component_manager.cpp"

@@ -141,7 +141,7 @@ int main(void)
 //     #ifdef _WIN32
 //     #define ROOT_DIR "C:/dev/zayn/"
 // #elif __APPLE__
-//     #define ROOT_DIR "/Users/socki/dev/zayn/"
+//     #define ROOT_DIR "/Users/socki/deuniv/zayn/"
 // #endif
     Zayn->windowSize.x = 1000;
     Zayn->windowSize.y = 800;
