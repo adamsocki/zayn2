@@ -1,4 +1,0 @@
-C:\dev_c\zayn_\build\Debug\glfw3.dll
-C:\dev_c\zayn_\build\main_pc.dir\Debug\main_pc.vcxproj.Up2Date
-C:\dev_c\zayn\build\Debug\glfw3.dll
-C:\dev_c\zayn\build\main_pc.dir\Debug\main_pc.vcxproj.Up2Date

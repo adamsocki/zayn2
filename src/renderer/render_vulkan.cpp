@@ -1967,11 +1967,11 @@ void InitRender_Learn()
     CreateTextureSampler(Zayn->monkey_RC.mipLevels, &Zayn->monkey_RC.textureSampler);
     CreateTextureSampler(Zayn->sphereRC.mipLevels, &Zayn->sphereRC.textureSampler);
 
-    LoadModel( getModelPath( "gwc.obj"), &Zayn->vkVertices, &Zayn->vkIndices);
-    LoadModel( getModelPath( "viking_room.obj"), &Zayn->monkey_RC.vertices, &Zayn->monkey_RC.indices);
-    LoadModel( getModelPath( "sphere.obj"), &Zayn->sphereRC.vertices, &Zayn->sphereRC.indices);
-    LoadModel( getModelPath( "sphere.obj"), &Zayn->sphereRC_blank.vertices, &Zayn->sphereRC_blank.indices);
-    LoadModel( getModelPath( "grid_plane.obj"), &Zayn->grid.vertices, &Zayn->grid.indices);
+    LoadModel( getModelPath("gwc.obj"), &Zayn->vkVertices, &Zayn->vkIndices);
+    LoadModel( getModelPath("viking_room.obj"), &Zayn->monkey_RC.vertices, &Zayn->monkey_RC.indices);
+    LoadModel( getModelPath("sphere.obj"), &Zayn->sphereRC.vertices, &Zayn->sphereRC.indices);
+    LoadModel( getModelPath("sphere.obj"), &Zayn->sphereRC_blank.vertices, &Zayn->sphereRC_blank.indices, glm::vec3(0.9f, 0.9f, 0.5f));
+    LoadModel( getModelPath("grid_plane.obj"), &Zayn->grid.vertices, &Zayn->grid.indices);
 
     CreateVertexBuffer(Zayn->vkVertices, &Zayn->vkVertexBuffer, &Zayn->vkVertexBufferMemory);
     CreateVertexBuffer(Zayn->monkey_RC.vertices, &Zayn->monkey_RC.vertexBuffer, &Zayn->monkey_RC.vertexBufferMemory);

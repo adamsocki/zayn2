@@ -110,7 +110,10 @@ struct ZaynMemory
     uint32_t vkCurrentFrame = 0;
 
     // Casstte_Lighting
-    VkDescriptorSetLayout vkDescriptorSetLayout_Lighting;
+    VkDescriptorSetLayout vkDescriptorSetLayout_lighting_01;
+    VkDescriptorPool vkDescriptorPool_lighting_01;
+    std::vector<VkDescriptorSet>  vkDescriptorSets_lighting_01;
+    
 
 
     bool vkFramebufferResized = false;
@@ -153,6 +156,7 @@ struct ZaynMemory
     RenderComponent sphereRC;
     RenderComponent grid;
     RenderComponent sphereRC_blank;
+    RenderComponent lighting_01;
 
     DynamicArray<RenderComponent> renderComponents;
 
