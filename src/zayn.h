@@ -113,6 +113,9 @@ struct ZaynMemory
     VkDescriptorSetLayout vkDescriptorSetLayout_lighting_01;
     VkDescriptorPool vkDescriptorPool_lighting_01;
     std::vector<VkDescriptorSet>  vkDescriptorSets_lighting_01;
+    std::vector<VkBuffer> uniformBuffers_lighting_01;
+    std::vector<VkDeviceMemory> uniformBuffersMemory_lighting_01;
+    std::vector<void*> uniformBuffersMapped_lighting_01;
     
 
 
@@ -157,6 +160,7 @@ struct ZaynMemory
     RenderComponent grid;
     RenderComponent sphereRC_blank;
     RenderComponent lighting_01;
+    RenderComponent lighting_01_lightSource;
 
     DynamicArray<RenderComponent> renderComponents;
 

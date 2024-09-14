@@ -25,7 +25,7 @@ std::string getShaderPath(const std::string& filename) {
 #ifdef _WIN32
     return "C:/dev_c/zayn/src/renderer/shaders/" + filename;
 #else
-    return "/Users/socki/dev/zayn/src/renderer/shaders/" + filename;
+    return "/Users/socki/dev/zayn2/src/renderer/shaders/" + filename;
 #endif
 }
 
@@ -38,7 +38,7 @@ std::string getTexturePath(const std::string& filename) {
 #ifdef _WIN32
     return "C:/dev_c/zayn/models/textures/" + filename;
 #else
-    return "/Users/socki/dev/zayn/models/textures/" + filename;
+    return "/Users/socki/dev/zayn2/models/textures/" + filename;
 #endif
 }
 
@@ -46,7 +46,7 @@ std::string getModelPath(const std::string& filename) {
 #ifdef _WIN32
     return "C:/dev_c/zayn/models/" + filename;
 #else
-    return "/Users/socki/dev/zayn/models/" + filename;
+    return "/Users/socki/dev/zayn2/models/" + filename;
 #endif
 }
 
