@@ -8,6 +8,7 @@ struct Vertex_
     glm::vec3 pos;
     glm::vec3 color;
     glm::vec2 texCoord;
+    glm::vec3 normal;
 
     static VkVertexInputBindingDescription getBindingDescription()
     {
@@ -33,9 +34,9 @@ struct Vertex_
         return bindingDescriptions;
     }
 
-    static std::array<VkVertexInputAttributeDescription, 3> getAttributeDescriptions()
+    static std::array<VkVertexInputAttributeDescription, 4> getAttributeDescriptions()
     {
-        std::array<VkVertexInputAttributeDescription, 3> attributeDescriptions{};
+        std::array<VkVertexInputAttributeDescription, 4> attributeDescriptions{};
 
         attributeDescriptions[0].binding = 0;
         attributeDescriptions[0].location = 0;
@@ -51,13 +52,18 @@ struct Vertex_
         attributeDescriptions[2].location = 2;
         attributeDescriptions[2].format = VK_FORMAT_R32G32_SFLOAT;
         attributeDescriptions[2].offset = offsetof(Vertex_, texCoord);
+
+        attributeDescriptions[3].binding = 0;
+        attributeDescriptions[3].location = 3;
+        attributeDescriptions[3].format = VK_FORMAT_R32G32B32_SFLOAT;
+        attributeDescriptions[3].offset = offsetof(Vertex_, normal);
 
         return attributeDescriptions;
     }
 
-    static std::array<VkVertexInputAttributeDescription, 7> getAttributeDescriptions_instanced()
+    static std::array<VkVertexInputAttributeDescription, 8> getAttributeDescriptions_instanced()
     {
-        std::array<VkVertexInputAttributeDescription, 7> attributeDescriptions{};
+        std::array<VkVertexInputAttributeDescription, 8> attributeDescriptions{};
 
         attributeDescriptions[0].binding = 0;
         attributeDescriptions[0].location = 0;
@@ -74,25 +80,30 @@ struct Vertex_
         attributeDescriptions[2].format = VK_FORMAT_R32G32_SFLOAT;
         attributeDescriptions[2].offset = offsetof(Vertex_, texCoord);
 
-        attributeDescriptions[3].binding = 1; // Assuming binding 1 for instance data
+        attributeDescriptions[3].binding = 0;
         attributeDescriptions[3].location = 3;
-        attributeDescriptions[3].format = VK_FORMAT_R32G32B32A32_SFLOAT;
-        attributeDescriptions[3].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 0;
+        attributeDescriptions[3].format = VK_FORMAT_R32G32B32_SFLOAT;
+        attributeDescriptions[3].offset = offsetof(Vertex_, normal);
 
         attributeDescriptions[4].binding = 1; // Assuming binding 1 for instance data
         attributeDescriptions[4].location = 4;
         attributeDescriptions[4].format = VK_FORMAT_R32G32B32A32_SFLOAT;
-        attributeDescriptions[4].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 1;
+        attributeDescriptions[4].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 0;
 
         attributeDescriptions[5].binding = 1; // Assuming binding 1 for instance data
         attributeDescriptions[5].location = 5;
         attributeDescriptions[5].format = VK_FORMAT_R32G32B32A32_SFLOAT;
-        attributeDescriptions[5].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 2;
+        attributeDescriptions[5].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 1;
 
         attributeDescriptions[6].binding = 1; // Assuming binding 1 for instance data
         attributeDescriptions[6].location = 6;
         attributeDescriptions[6].format = VK_FORMAT_R32G32B32A32_SFLOAT;
-        attributeDescriptions[6].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 3;
+        attributeDescriptions[6].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 2;
+
+        attributeDescriptions[7].binding = 1; // Assuming binding 1 for instance data
+        attributeDescriptions[7].location = 7;
+        attributeDescriptions[7].format = VK_FORMAT_R32G32B32A32_SFLOAT;
+        attributeDescriptions[7].offset = offsetof(InstancedData, modelMatrix) + sizeof(glm::vec4) * 3;
 
         return attributeDescriptions;
     }

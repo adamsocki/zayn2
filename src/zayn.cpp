@@ -9,6 +9,7 @@
 #include "memory.cpp"
 #include "input.cpp"
 #include "camera_manager.cpp"
+#include "camera.cpp"
 
 #include "renderer/render.cpp"
 

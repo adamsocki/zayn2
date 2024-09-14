@@ -2055,9 +2055,14 @@ void UpdateUniformBuffer(uint32_t currentImage, ZaynMemory *zaynMem)
     cam->front.x = cosf(DegToRad(cam->yaw)) * cosf(DegToRad(cam->pitch));
     cam->front.y = sinf(DegToRad(cam->pitch));
     cam->front.z = sinf(DegToRad(cam->yaw)) * cosf(DegToRad(cam->pitch));
-    cam->front = normalize(cam->front);
+    cam->front = Normalize(cam->front);
 
-    ubo.view = glm::lookAt(cam->pos, cam->pos + cam->front, cam->up);
+    glm::vec3 camPos = glm::vec3(cam->pos.x, cam->pos.y, cam->pos.z);
+    glm::vec3 camFront = glm::vec3(cam->front.x, cam->front.y, cam->front.z);
+    glm::vec3 camUp = glm::vec3(cam->up.x, cam->up.y, cam->up.z);
+
+    ubo.view = glm::lookAt(camPos, camPos + camFront, camUp);
+    // ubo.view = glm::lookAt(cam->pos, cam->pos + cam->front, cam->up);
 
     ubo.proj = glm::perspective(glm::radians(60.0f), zaynMem->vkSwapChainExtent.width / (float)zaynMem->vkSwapChainExtent.height, 0.1f, 1000.0f);
     ubo.proj[1][1] *= -1;

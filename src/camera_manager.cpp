@@ -10,8 +10,8 @@ void InGameCameraInit()
     cam->targetSpeed = 20.0f;
     cam->targetTurnSpeed = 160.0f;
 
-    cam->pos = glm::vec3(0, 0, 0.5);
-    cam->front = glm::vec3(-1, 0, 0);
-    cam->up = glm::vec3(0, 0, 1);
-    cam->right = glm::vec3(0, -1, 0);
+    cam->pos = V3(0, 0, 0.5f);
+    cam->front = V3(-1, 0, 0);
+    cam->up = V3(0, 0, 1);
+    cam->right = V3(0, -1, 0);
 }

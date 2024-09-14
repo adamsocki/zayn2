@@ -24,6 +24,15 @@ struct UniformBufferObject_lighting_01
     alignas(16) vec3 lightColor;
 };
 
+struct UniformBufferObject_lighting_02
+{
+    alignas(16) glm::mat4 view;
+    alignas(16) glm::mat4 proj;
+    alignas(16) vec3 lightColor;
+    alignas(16) vec3 lightPos;
+    alignas(16) vec3 viewPos;
+};
+
 
 struct SwapChainSupportDetails
 {
