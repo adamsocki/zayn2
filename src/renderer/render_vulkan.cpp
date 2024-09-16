@@ -1794,6 +1794,22 @@ void CreateDescriptorSetLayout(VkDescriptorSetLayout *descriptorSetLayout, bool 
     }
 }
 
+void CreateUniformBuffer(size_t uniformBufferSize, std::vector<VkBuffer> &uniformBuffers, std::vector<VkDeviceMemory> &uniformBuffersMemory, std::vector<void *> &uniformBuffersMapped)
+{
+    VkDeviceSize bufferSize = uniformBufferSize;
+
+    uniformBuffers.resize(MAX_FRAMES_IN_FLIGHT);
+    uniformBuffersMemory.resize(MAX_FRAMES_IN_FLIGHT);
+    uniformBuffersMapped.resize(MAX_FRAMES_IN_FLIGHT);
+
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
+    {
+        createBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, uniformBuffers[i], uniformBuffersMemory[i]);
+        vkMapMemory(Zayn->vkDevice, uniformBuffersMemory[i], 0, bufferSize, 0, &uniformBuffersMapped[i]);
+    }
+}
+
+
 void CreateUniformBuffer(std::vector<VkBuffer> &uniformBuffers, std::vector<VkDeviceMemory> &uniformBuffersMemory, std::vector<void *> &uniformBuffersMapped)
 {
     VkDeviceSize bufferSize = sizeof(UniformBufferObject);
@@ -1837,6 +1853,17 @@ void CreateDescriptorPool(VkDescriptorPool *descriptorPool, bool hasImage)
 }
 
 template <typename T>
+void CreatePushConstant(std::vector<VkPushConstantRange> &pushConstantRanges)
+{
+    VkPushConstantRange pushConstantRange = {};
+    pushConstantRange.stageFlags = VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+    pushConstantRange.offset = 0;
+    pushConstantRange.size = sizeof(T);
+
+    pushConstantRanges.push_back(pushConstantRange);
+}
+
+template <typename T>
 void CreatePushConstant()
 {
     VkPushConstantRange pushConstantRange = {};
@@ -1846,6 +1873,7 @@ void CreatePushConstant()
 
     Zayn->vkPushConstantRanges.push_back(pushConstantRange);
 }
+
 
 void CreateDescriptorSets(bool hasImage, size_t uniformBufferSize, std::vector<VkBuffer> &uniformBuffers, VkDescriptorSetLayout *descriptorSetLayout, VkDescriptorPool *descriptorPool, std::vector<VkDescriptorSet> &descriptorSets, VkImageView *textureImageView, VkSampler *textureSampler)
 {
@@ -2148,6 +2176,27 @@ void BeginSwapChainRenderPass(VkCommandBuffer commandBuffer)
     vkCmdSetViewport(commandBuffer, 0, 1, &viewport);
     vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
 }
+void RenderEntity_notYetEntity_DO(VkCommandBuffer imageBuffer, VkPipeline *pipeline, VkPipelineLayout *pipelineLayout, std::vector<VkDescriptorSet> &descriptorSets, VkBuffer *vertexBuffer, VkBuffer *indexBuffer, std::vector<uint32_t> &indices, ModelPushConstant *pushConstant)
+{
+    vkCmdBindPipeline(imageBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, *pipeline);
+    uint32_t dynamicOffsets[] = { 0, 0 }; // initialize with 0, but you may need to adjust these values depending on your use case
+    vkCmdBindDescriptorSets(imageBuffer, VK_PIPELINE_BIND_POINT_GRAPHICS, *pipelineLayout, 0, 1, &descriptorSets[Zayn->vkCurrentFrame], 2, dynamicOffsets);
+
+    
+    vkCmdPushConstants(imageBuffer, *pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0, sizeof(ModelPushConstant), pushConstant);
+
+    // Replace Below with BindModel() and DrawModel()
+
+    VkBuffer vertexBuffers[] = {*vertexBuffer};
+    VkDeviceSize offsets[] = {0};
+    vkCmdBindVertexBuffers(imageBuffer, 0, 1, vertexBuffers, offsets);
+
+    vkCmdBindIndexBuffer(imageBuffer, *indexBuffer, 0, VK_INDEX_TYPE_UINT32);
+
+    vkCmdDrawIndexed(imageBuffer, static_cast<uint32_t>(indices.size()), 1, 0, 0, 0);
+}
+
+
 
 void RenderEntity_notYetEntity(VkCommandBuffer imageBuffer, VkPipeline *pipeline, VkPipelineLayout *pipelineLayout, std::vector<VkDescriptorSet> &descriptorSets, VkBuffer *vertexBuffer, VkBuffer *indexBuffer, std::vector<uint32_t> &indices, ModelPushConstant *pushConstant)
 {

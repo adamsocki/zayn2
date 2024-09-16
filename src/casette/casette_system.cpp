@@ -2,7 +2,8 @@
 
 #define INTRO 0
 #define LIGHTING_01 0
-#define LIGHTING_02 1
+#define LIGHTING_02 0
+#define LIGHTING_03 1
 
 
 #include "../managers/component_manager.cpp"
@@ -20,6 +21,10 @@
 
 #elif LIGHTING_02
 #include "lighting_casette_02.cpp"
+
+
+#elif LIGHTING_03
+#include "lighting_casette_03.cpp"
 
 
 

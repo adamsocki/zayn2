@@ -30,23 +30,23 @@ void InitRender()
     // LIGHTING_01
     // 0. Add RenderComponent to Zayn
     // 1. Create descriptor set layout
-    CreateDescriptorSetLayout(&Zayn->vkDescriptorSetLayout_lighting_01, false);
+    // CreateDescriptorSetLayout(&Zayn->vkDescriptorSetLayout_lighting_01, false);
     // 2. Create Push Constant Range
     CreatePushConstant<ModelPushConstant>();
     // 3. Create Graphics Pipeline
     CreateGraphicsPipeline(Zayn, &Zayn->lighting_01_lightSource.pipeline, getShaderPath("vert_blank_light.spv"), getShaderPath("frag_blank_light.spv"), Zayn->vkPushConstantRanges, &Zayn->vkDescriptorSetLayout_lighting_01, &Zayn->vkPipelineLayout);
     // 4. Load Model
-    LoadModel(getModelPath("sphere.obj"), &Zayn->lighting_01_lightSource.vertices, &Zayn->lighting_01_lightSource.indices, glm::vec3(1.0f, 0.1f, 0.0f));
+    LoadModel(getModelPath("sphere.obj"), &Zayn->lighting_01_lightSource.vertices, &Zayn->lighting_01_lightSource.indices, glm::vec3(1.0f, 0.1f, 0.4f));
     // 5. Create Vertex Buffer
     CreateVertexBuffer(Zayn->lighting_01_lightSource.vertices, &Zayn->lighting_01_lightSource.vertexBuffer, &Zayn->lighting_01_lightSource.vertexBufferMemory);
     // 6. Create Index Buffer
     CreateIndexBuffer(Zayn->lighting_01_lightSource.indices, &Zayn->lighting_01_lightSource.indexBuffer, &Zayn->lighting_01_lightSource.indexBufferMemory);
     // 7. Create Uniform Buffer
-    CreateUniformBuffer(Zayn->uniformBuffers_lighting_01, Zayn->uniformBuffersMemory_lighting_01, Zayn->uniformBuffersMapped_lighting_01);
+    // CreateUniformBuffer(Zayn->uniformBuffers_lighting_01, Zayn->uniformBuffersMemory_lighting_01, Zayn->uniformBuffersMapped_lighting_01);
     // 8. Create Descriptor Pool
-    CreateDescriptorPool(&Zayn->vkDescriptorPool_lighting_01, false); // <---- CAN POTENTIAL BE RESUSED BETWEEN ENTITIES THAT HAVE THE SAME TYPES OF THINGS BEING SHARED
+    // CreateDescriptorPool(&Zayn->vkDescriptorPool_lighting_01, false); // <---- CAN POTENTIAL BE RESUSED BETWEEN ENTITIES THAT HAVE THE SAME TYPES OF THINGS BEING SHARED
     // 9. Create Descriptor Sets
-    CreateDescriptorSets(false, sizeof(UniformBufferObject_lighting_01), Zayn->uniformBuffers_lighting_01, &Zayn->vkDescriptorSetLayout_lighting_01, &Zayn->vkDescriptorPool_lighting_01, Zayn->vkDescriptorSets_lighting_01, nullptr, nullptr);
+    // CreateDescriptorSets(false, sizeof(UniformBufferObject_lighting_01), Zayn->uniformBuffers_lighting_01, &Zayn->vkDescriptorSetLayout_lighting_01, &Zayn->vkDescriptorPool_lighting_01, Zayn->vkDescriptorSets_lighting_01, nullptr, nullptr);
     
 
 
@@ -84,27 +84,32 @@ void UpdateUniformBuffer_LightingCasette_02(uint32_t currentImage, ZaynMemory *z
 }
 
 
-vec3 posModel1_lighting_01 = V3(0.0f, 0.0f, 0.0f);
-vec3 posModel2_lighting_01 = V3(10.0f, 4.0f, 2.0f);
 
 
 void UpdateRender_LightingCasette()
 {
     if (BeginFrame())
     {
+
+        // move light source up and down
+        Zayn->posModel2_lighting_02.y = 4.0f + sinf(Zayn->time) * 3.0f;
+        // move light source in a circle
+        Zayn->posModel2_lighting_02.x = 10.0f + cosf(Zayn->time) * 13.0f;
+        Zayn->posModel2_lighting_02.z = 12.0f + sinf(Zayn->time) * 3.0f;
+
+
         // Vary light color by time
-        vec3 lightColor = V3(0.0f, 1.0f, 1.0f);
-        UpdateUniformBuffer_LightingCasette_02(Zayn->vkCurrentFrame, Zayn, lightColor, posModel2_lighting_01, Zayn->camera.pos);
+        vec3 lightColor = V3(1.0f, 0.5f, 0.5f);
+        UpdateUniformBuffer_LightingCasette_02(Zayn->vkCurrentFrame, Zayn, lightColor, Zayn->posModel2_lighting_02, Zayn->posModel2_lighting_02);
         BeginSwapChainRenderPass(Zayn->vkCommandBuffers[Zayn->vkCurrentFrame]);
 
         ModelPushConstant pushConstantData1 = {};
         ModelPushConstant pushConstantData2 = {};
-        pushConstantData1.model_1 = TRS((posModel1_lighting_01), AxisAngle(V3(0.0f, 0.2f, 0.20f), 0.0f), V3(1.0f, 1.0f, 1.0f));
-        pushConstantData2.model_1 = TRS((posModel2_lighting_01), AxisAngle(V3(0.0f, 0.2f, 0.20f), 0.0f), V3(1.0f, 1.0f, 1.0f));
+        pushConstantData1.model_1 = TRS((Zayn->posModel1_lighting_02), AxisAngle(V3(0.0f, 0.2f, 0.20f), 0.0f), V3(1.0f, 1.0f, 1.0f));
+        pushConstantData2.model_1 = TRS((Zayn->posModel2_lighting_02), AxisAngle(V3(0.0f, 0.2f, 0.20f), 0.0f), V3(1.0f, 1.0f, 1.0f));
 
         RenderEntity_notYetEntity(Zayn->vkCommandBuffers[Zayn->vkCurrentFrame], &Zayn->lighting_01.pipeline, &Zayn->vkPipelineLayout, Zayn->vkDescriptorSets_lighting_01, &Zayn->lighting_01.vertexBuffer, &Zayn->lighting_01.indexBuffer, Zayn->lighting_01.indices, &pushConstantData1);
         RenderEntity_notYetEntity(Zayn->vkCommandBuffers[Zayn->vkCurrentFrame], &Zayn->lighting_01_lightSource.pipeline, &Zayn->vkPipelineLayout, Zayn->vkDescriptorSets_lighting_01, &Zayn->lighting_01_lightSource.vertexBuffer, &Zayn->lighting_01_lightSource.indexBuffer, Zayn->lighting_01_lightSource.indices, &pushConstantData2);
-
 
 
 

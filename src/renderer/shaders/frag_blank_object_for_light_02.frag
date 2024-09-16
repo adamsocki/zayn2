@@ -28,7 +28,7 @@ void main() {
     // specular
     float specularStrength = 1.0; // Increase the specular strength
     vec3 viewDir = normalize(viewPos - fragPos);
-    vec3 reflectDir = reflect(lightDir, norm);
+    vec3 reflectDir = reflect(-lightDir, norm);
     float shininess = 64.0; // Increase the shininess factor
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
     vec3 specular = specularStrength * spec * lightingColor;

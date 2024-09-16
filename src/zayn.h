@@ -116,7 +116,28 @@ struct ZaynMemory
     std::vector<VkBuffer> uniformBuffers_lighting_01;
     std::vector<VkDeviceMemory> uniformBuffersMemory_lighting_01;
     std::vector<void*> uniformBuffersMapped_lighting_01;
-    
+
+    vec3 posModel1_lighting_02 = V3(10.0f, -4.0f, 0.0f);
+    vec3 posModel2_lighting_02 = V3(10.0f,  4.0f, 2.0f);
+
+    // MATERIAL_LIGHTING_03
+    VkDescriptorSetLayout vkDescriptorSetLayout_material_lighting_03;
+    VkDescriptorPool vkDescriptorPool_material_lighting_03;
+    std::vector<VkDescriptorSet> vkDescriptorSets_material_lighting_03;
+    // Uniform Buffers for MATERIAL_LIGHTING_03
+    std::vector<VkBuffer> uniformBuffers_materials_lighting_03;
+    std::vector<VkDeviceMemory> uniformBuffersMemory_materials_lighting_03;
+    std::vector<void*> uniformBuffersMapped_materials_lighting_03;
+    std::vector<VkBuffer> materialUniformBuffers_materials_lighting_03;
+    std::vector<VkDeviceMemory> materialUniformBuffersMemory_materials_lighting_03;
+    std::vector<void*> materialUniformBuffersMapped_materials_lighting_03;
+    // Push Constants for MATERIAL_LIGHTING_03
+    std::vector<VkPushConstantRange> vkPushConstantRanges_material_lighting_03;
+    // Graphics Pipeline Layout for MATERIAL_LIGHTING_03
+    VkPipelineLayout vkPipelineLayout_material_lighting_03;    
+    // RenderComponent for MATERIAL_LIGHTING_03
+    RenderComponent lighting_03;
+    RenderComponent material_03;
 
 
     bool vkFramebufferResized = false;
@@ -161,6 +182,7 @@ struct ZaynMemory
     RenderComponent sphereRC_blank;
     RenderComponent lighting_01;
     RenderComponent lighting_01_lightSource;
+    
 
     DynamicArray<RenderComponent> renderComponents;
 
@@ -191,6 +213,7 @@ struct ZaynMemory
     real32 time;
     real32 deltaTime;
     real32 startTime;
+    real32 accumulatedTime;
         
     uint32 frame;
     real32 fps;
