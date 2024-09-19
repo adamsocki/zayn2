@@ -139,6 +139,33 @@ struct ZaynMemory
     RenderComponent lighting_03;
     RenderComponent material_03;
 
+    // LIGHTING_03_v2
+    RenderComponent light_03_forTexture;
+    RenderComponent texture_03_forTexture;
+    std::vector<VkPushConstantRange> vkPushConstantRanges_BASE_TYPE;
+    std::vector<VkDescriptorSet> vkDescriptorSets_material_lighting_03_forTexture;
+    std::vector<VkDescriptorSet> vkDescriptorSets_forLight;
+    VkDescriptorPool vkDescriptorPool_material_lighting_03_forTexture;
+    VkDescriptorPool vkDescriptorPool_forLight;
+    VkDescriptorSetLayout vkDescriptorSetLayout_material_lighting_03_forTexture;
+    VkPipelineLayout vkPipelineLayout_material_lighting_03_forTexture;
+    VkDescriptorSetLayout vkDescriptorSetLayout_forLight;
+    VkPipelineLayout vkPipelineLayout_forLight;
+    // Uniform Buffers for Texture_LIGHTING_03
+    std::vector<VkBuffer> uniformBuffers_materials_lighting_03_forTexture;
+    std::vector<VkDeviceMemory> uniformBuffersMemory_materials_lighting_03_forTexture;
+    std::vector<void*> uniformBuffersMapped_materials_lighting_03_forTexture;
+    std::vector<VkBuffer> materialUniformBuffers_materials_lighting_03_forTexture;
+    std::vector<VkDeviceMemory> materialUniformBuffersMemory_materials_lighting_03_forTexture;
+    std::vector<void*> materialUniformBuffersMapped_materials_lighting_03_forTexture;
+
+ 
+    VkImage vkTextureImage_03_forTexture;
+    VkDeviceMemory vkTextureImageMemory_03_forTexture;
+    VkImageView vkTextureImageView_03_forTexture;
+    VkSampler vkTextureSampler_03_forTexture;
+
+
 
     bool vkFramebufferResized = false;
     bool vkHasIndexBuffer = false;

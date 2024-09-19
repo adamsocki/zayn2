@@ -18,3 +18,9 @@
 /usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_light_03.vert -o /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_light_03.spv
 /usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_material_03.frag -o /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_material_03.spv
 /usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_material_03.vert -o /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_material_03.spv
+
+# lighting_03_forTexture
+# /usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_light_03.frag -o /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_light_03.spv
+# /usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_light_03.vert -o /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_light_03.spv
+/usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_material_03_forTexture.frag -o /Users/socki/dev/zayn2/src/renderer/shaders/frag_blank_object_for_material_03_forTexture.spv
+/usr/local/bin/glslc /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_material_03_forTexture.vert -o /Users/socki/dev/zayn2/src/renderer/shaders/vert_blank_object_for_material_03_forTexture.spv

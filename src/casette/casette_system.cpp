@@ -3,7 +3,8 @@
 #define INTRO 0
 #define LIGHTING_01 0
 #define LIGHTING_02 0
-#define LIGHTING_03 1
+#define LIGHTING_03 0
+#define LIGHTING_03_v2 1
 
 
 #include "../managers/component_manager.cpp"
@@ -25,6 +26,9 @@
 
 #elif LIGHTING_03
 #include "lighting_casette_03.cpp"
+
+#elif LIGHTING_03_v2
+#include "lighting_casette_03_with_textures.cpp"
 
 
 

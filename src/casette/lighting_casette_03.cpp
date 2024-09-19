@@ -125,7 +125,6 @@ void InitRender()
     AllocateDescriptorSets(&Zayn->vkDescriptorSetLayout_material_lighting_03, &Zayn->vkDescriptorPool_material_lighting_03, Zayn->vkDescriptorSets_material_lighting_03);
     CreateDescriptorSets(sizeof(UniformBufferObject_lighting_03), sizeof(MaterialBufferObject_lighting_03), Zayn->uniformBuffers_materials_lighting_03, Zayn->materialUniformBuffers_materials_lighting_03, &Zayn->vkDescriptorSetLayout_material_lighting_03, &Zayn->vkDescriptorPool_material_lighting_03, Zayn->vkDescriptorSets_material_lighting_03);
     
-    
     // 2. Create Push Constant Range
     CreatePushConstant<ModelPushConstant>(Zayn->vkPushConstantRanges_material_lighting_03);
     // 3. Create Graphics Pipeline
@@ -144,7 +143,6 @@ void InitRender()
     // CreateUniformBuffer(Zayn->uniformBuffers_lighting_01, Zayn->uniformBuffersMemory_lighting_01, Zayn->uniformBuffersMapped_lighting_01);
     // 8. Create Descriptor Pool
     // 9. Create Descriptor Sets
-    
 
     // LIGHTING_01
     // 0. Add RenderComponent to Zayn
@@ -164,8 +162,6 @@ void InitRender()
     // CreateDescriptorPool(&Zayn->vkDescriptorPool_lighting_01, false); // <---- CAN POTENTIAL BE RESUSED BETWEEN ENTITIES THAT HAVE THE SAME TYPES OF THINGS BEING SHARED
     // // 9. Create Descriptor Sets
     // CreateDescriptorSets(false, sizeof(UniformBufferObject_lighting_01), Zayn->uniformBuffers_lighting_01, &Zayn->vkDescriptorSetLayout_lighting_01, &Zayn->vkDescriptorPool_lighting_01, Zayn->vkDescriptorSets_lighting_01, nullptr, nullptr);
-    
-
 
     EndRender_Init();
 }
